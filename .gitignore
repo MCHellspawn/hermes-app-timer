@@ -1,0 +1,4 @@
+.vscode
+__pycache__
+rhasspy-app-timer
+scratch.py
