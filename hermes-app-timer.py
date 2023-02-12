@@ -131,7 +131,7 @@ class TimerJob(object):
         _LOGGER.info(sentence)
         return sentence
 
-@app.on_intent("Timerjob:start")
+@app.on_intent("TimerStart")
 async def timer(intent: NluIntent):
     global t
     if t != None:
@@ -143,7 +143,7 @@ async def timer(intent: NluIntent):
     """Timer"""
     return EndSession()
 
-@app.on_intent("Timerjob:remaining")
+@app.on_intent("TimerTimeRemaining")
 async def timer(intent: NluIntent):
     """Time remaining"""
     global t
@@ -152,7 +152,7 @@ async def timer(intent: NluIntent):
     else:
         return EndSession(t.timeRemaining())
 
-@app.on_intent("Timerjob:stop")
+@app.on_intent("TimerStop")
 async def timer(intent: NluIntent):
     """stop Timer"""
     global t

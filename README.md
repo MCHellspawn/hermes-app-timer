@@ -2,6 +2,13 @@
 
 A skill for [Rhasspy](https://github.com/rhasspy) that provides various timer related intents including creating new timers, getting the remaining time on existing timers, and stopping a timer. This skill is implemented as a Hermes app and uses the [Rhasspy-hermes-app](https://github.com/rhasspy/rhasspy-hermes-app) library. The script can be run as a service, or as a docker container (recommended). 
 
+Credit for the basic timer goes to https://github.com/ThisisDennis/Rhasspy-Timer-Skill. This project started as me learning to write a skill using this as an example and turned into an extension of that work.
+
+THe advanced timer heavily depends on a Speech to Text engine that can understand the full model of the language you are speaking. In my case I used the Vosk engine in Rhasspy but replaced the built in model with the full english one. 
+
+Vosk Models:
+https://alphacephei.com/vosk/models
+
 ## Installing
 
 Requires:
@@ -46,6 +53,16 @@ sudo docker run -it -d \
 
 The following intents are implemented on the hermes MQTT topic:
 
+Basic:
+```ini
+[TimerStart]
+
+[TimerStop]
+
+[TimerTimeRemaining]
+```
+
+Advanced:
 ```ini
 [AdvTimerStart]
 
